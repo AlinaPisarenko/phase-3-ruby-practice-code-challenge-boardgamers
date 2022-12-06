@@ -11,7 +11,7 @@ class Player < ActiveRecord::Base
     # Player#favorite_game
     # returns the game that has the highest hours_played amongst this players reviews
     def favorite_game 
-        self.boardgames.where(reviews: self.reviews.max_by{|r| r.hours_played})
+        self.boardgames.where(reviews: self.reviews.max_by{|r| r.hours_played}).first
     end
 
     # Player#add_review(boardgame, content, hours_played)
